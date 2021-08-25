@@ -6,4 +6,4 @@ class User(models.Model):
     
     autoPayment = models.BooleanField()
 
-    connectedUUID = models.TextField(null=True) # locker.models.Locker.UUID와 같은 field type
+    connectedUUID = models.TextField(null=True,blank=True) # locker.models.Locker.UUID와 같은 field type

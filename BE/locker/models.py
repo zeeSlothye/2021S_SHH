@@ -18,7 +18,7 @@ class OccupiedLocker(models.Model):
     password = models.TextField(null = False)
 
     title = models.TextField(null = False)
-    info = models.TextField(null = True)
+    info = models.TextField(null = True,blank=True)
 
     isOpen = models.BooleanField(null = False, default=False)
 

@@ -59,7 +59,7 @@ def update_occupiedLocker(request):
     # - info
     # - isOpen
 
-    occupiedLockerS = list(OccupiedLocker.objects.filter(pk = request.data['idx']))
+    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = request.data['idx']))
     occupiedLocker = occupiedLockerS[0]
     input = request.data
 
@@ -79,7 +79,7 @@ def update_occupiedLocker(request):
 def delete_occupiedLocker(request):
     # input
     # - idx (required)
-    occupiedLockerS = list(OccupiedLocker.objects.filter(pk = request.data['idx']))
+    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = request.data['idx']))
     occupiedLocker = occupiedLockerS[0]
     serializer = serializers.OccupiedLockerSerializer(occupiedLocker)
     occupiedLocker.delete()
