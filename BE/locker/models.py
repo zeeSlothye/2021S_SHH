@@ -4,6 +4,8 @@ from django.utils import timezone
 class Locker(models.Model):
     idx = models.AutoField(primary_key=True)
 
+    type = models.IntegerField(null = False) # 순서대로 1 2 3 4 5 6 7 ..
+
     number = models.IntegerField(null = False)
     stationName = models.TextField(null = False, max_length=50)
     stationUUID = models.TextField()
