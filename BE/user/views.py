@@ -7,13 +7,17 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from .serializers import *
-
+import json
 ## 가져오는..
 @api_view(['POST'])
 def create_user(request):
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
     User.objects.create(
-        userId = request.data['userId'],
-        userPw = request.data['userPw']
+        userId = input['userId'],
+        userPw = input['userPw']
     )
     print("USER CREATED")
 
@@ -37,22 +41,16 @@ def create_user(request):
 
     return HttpResponse("user created")
 @api_view(['POST'])
-def connect_user_beacon(request):
+def set_user_beacon(request):
     # 모바일에서 UUID를 받은 경우 -> user의 UUID값을 변경시켜준다.
     # input
     # userId, UUID
-    req = request.data
-    userS = list(User.objects.filter(userId = req['userId']))
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    userS = list(User.objects.filter(userId = input['userId']))
     user = userS[0]
-    user.connectedUUID = req['UUID']
+    user.connectedUUID = input['connectedUUID'] # NULL | UUID
     user.save()
-@api_view(['POST'])
-def disconnect_user_beacon(request):
-    # 모바일에서 UUID를 받은 경우 -> user의 UUID값을 변경시켜준다.
-    # input
-    # userId, UUID
-    req = request.data
-    userS = list(User.objects.filter(userId = req['userId']))
-    user = userS[0]
-    user.connectedUUID = ''
-    user.save()
+

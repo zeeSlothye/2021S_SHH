@@ -6,24 +6,28 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from .serializers import *
-
+import json
 ## 가져오는..
 
 @api_view(['POST'])
 def get_vacant_lockerS_stationIdx(request):
     # input
     # - stationName (required)
-    stationName = request.data['stationName']
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    stationUUID = input['stationUUID']
     OccupiedLocker_numberS = list(
         OccupiedLocker.objects
-        .filter(stationName = stationName).value('number')
+        .filter(stationUUID = stationUUID).value('number')
     )
     vacantLockerS = list(
         Locker.objects
-        .filter(Q(stationName = stationName) & ~Q(number__in = OccupiedLocker_numberS))
+        .filter(Q(stationUUID = stationUUID) & ~Q(number__in = OccupiedLocker_numberS))
     )
     serializer = Locker(vacantLockerS, many = True)
-    print("VACANT LOCKER IN "+stationName+" : ")
+    print("VACANT LOCKER IN UUID:"+stationUUID+" => ")
     print(serializer.data)
     return Response(serializer.data)
 @api_view(['POST'])
@@ -35,7 +39,10 @@ def create_occupiedLocker(request):
     # - info (required)
     # - isOpen (required)
     # - trusterId (required)
-    input = request.data
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
     userS = list(User.objects.filter(userId = input['trusterId']))
     user = userS[0]
     autoPayment = user.autoPayment
@@ -58,10 +65,13 @@ def update_occupiedLocker(request):
     # - title
     # - info
     # - isOpen
-
-    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = request.data['idx']))
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = input['idx']))
     occupiedLocker = occupiedLockerS[0]
-    input = request.data
+
 
     if 'password' in input:
         occupiedLocker.password = input['password']
@@ -79,24 +89,30 @@ def update_occupiedLocker(request):
 def delete_occupiedLocker(request):
     # input
     # - idx (required)
-    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = request.data['idx']))
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    occupiedLockerS = list(OccupiedLocker.objects.filter(idx = input['idx']))
     occupiedLocker = occupiedLockerS[0]
     serializer = serializers.OccupiedLockerSerializer(occupiedLocker)
     occupiedLocker.delete()
     return Response(serializer.data)
 @api_view(['POST'])
-def get_all_lockers_onStation(request):
-    # input
-    # - idx (required)
-    req = request.data
-    lockerS = Locker.objects.filter(UUID = req['UUID'])
+def get_all_lockerS_onStation(request):
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    lockerS = Locker.objects.filter(stationUUID = input['stationUUID'])
     serializer = serializers.LockerSerializer(lockerS)
     return Response(serializer.data)
 @api_view(['POST'])
-def get_all_occupiedLockers_onStation(request):
-    # input
-    # - idx (required)
-    req = request.data
-    occupiedLockerS = OccupiedLocker.objects.filter(lockerId__in = req['lockerIdS'])
+def get_all_occupiedLockerS_onStation(request):
+    if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
+        #<class 'django.http.request.QueryDict'>
+        input = json.loads(request.data.get('_content')) 
+        print(input)
+    occupiedLockerS = OccupiedLocker.objects.filter(lockerId__in = input['lockerIdS'])
     serializer = serializers.OcupiedLockerSerializer(occupiedLockerS)
     return Response(serializer.data)
