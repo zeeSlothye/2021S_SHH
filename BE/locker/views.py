@@ -50,7 +50,7 @@ def create_occupiedLocker(request):
     # user = userS[0]
     # autoPayment = user.autoPayment
     else:
-        input = json.loads(request.data)
+        input = request.data
     
 
     OccupiedLocker.objects.create(
