@@ -10,7 +10,7 @@ import json
 ## 가져오는..
 
 @api_view(['POST'])
-def get_vacant_lockerS_stationIdx(request):
+def get_occupiedLockerS_stationUUID(request):
     # input
     # - stationName (required)
     if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
@@ -18,15 +18,12 @@ def get_vacant_lockerS_stationIdx(request):
         input = json.loads(request.data.get('_content')) 
         print(input)
     stationUUID = input['stationUUID']
-    OccupiedLocker_numberS = list(
+
+    occupiedLockerS = list(
         OccupiedLocker.objects
-        .filter(stationUUID = stationUUID).value('number')
+        .filter(stationUUID = stationUUID)
     )
-    vacantLockerS = list(
-        Locker.objects
-        .filter(Q(stationUUID = stationUUID) & ~Q(number__in = OccupiedLocker_numberS))
-    )
-    serializer = Locker(vacantLockerS, many = True)
+    serializer = OccupiedLocker(occupiedLockerS, many = True)
     print("VACANT LOCKER IN UUID:"+stationUUID+" => ")
     print(serializer.data)
     return Response(serializer.data)
