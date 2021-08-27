@@ -6,4 +6,4 @@ class UserSerializer(serializers.ModelSerializer):
     #JSON파일의 형태로 serialize해줌.
     class Meta:
         model = User
-        fields = ['phoneNumber','password', 'autoPayment']
+        fields = ['phoneNumber','password','connectedUUID']

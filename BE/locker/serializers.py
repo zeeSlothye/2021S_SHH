@@ -15,4 +15,4 @@ class OccupiedLockerSerializer(serializers.ModelSerializer):
         fields = ['idx',
         'lockerIdx', 'password', 
         'title', 'info', 
-        'isOpen', 'date', 'trusterId', 'isPaid']
+        'isOpen', 'date', 'trusterId']
