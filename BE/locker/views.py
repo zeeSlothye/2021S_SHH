@@ -41,6 +41,7 @@ def create_occupiedLocker(request):
     # - isOpen (required)
     # - trusterId (required)
     print(request.data)
+    print(type(request.data))
     if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
         #<class 'django.http.request.QueryDict'>
         input = json.loads(request.data.get('_content')) 
@@ -49,7 +50,7 @@ def create_occupiedLocker(request):
     # user = userS[0]
     # autoPayment = user.autoPayment
     else:
-        input = input = json.loads(request.data)
+        input = json.loads(request.data)
     
 
     OccupiedLocker.objects.create(
