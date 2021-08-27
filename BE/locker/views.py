@@ -48,6 +48,9 @@ def create_occupiedLocker(request):
     # userS = list(User.objects.filter(userId = input['trusterId']))
     # user = userS[0]
     # autoPayment = user.autoPayment
+    else:
+        input = input = json.loads(request.data)
+    
 
     OccupiedLocker.objects.create(
         lockerIdx = input['lockerIdx'],
