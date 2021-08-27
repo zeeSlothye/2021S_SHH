@@ -19,9 +19,12 @@ def get_occupiedLockerS_stationUUID(request):
         print(input)
     stationUUID = input['stationUUID']
 
+    lockerS = list(
+        Locker.objects
+        .filter(stationUUID = stationUUID).values_list('idx')
+    )
     occupiedLockerS = list(
-        OccupiedLocker.objects
-        .filter(stationUUID = stationUUID)
+        OccupiedLocker.objects.filter(lockerIdx__in = lockerS)
     )
     serializer = OccupiedLocker(occupiedLockerS, many = True)
     print("VACANT LOCKER IN UUID:"+stationUUID+" => ")
