@@ -52,8 +52,8 @@ def create_occupiedLocker(request):
         password = input['password'],
         title = input['title'],
         info = input['info'],
-        isOpen = input['isOpen'],
-        trusterId = input['trusterId']
+        trusterId = input['trusterId'],
+        isPaid = input['isPaid']
     )
     return HttpResponse('CREATE LOCKER USING')
 @api_view(['POST'])
