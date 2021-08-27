@@ -21,7 +21,7 @@ def get_occupiedLockerS_stationUUID(request):
 
     lockerS = list(
         Locker.objects
-        .filter(stationUUID = stationUUID).values_list('idx')
+        .filter(stationUUID = stationUUID).values_list('idx', flat = True)
     )
     occupiedLockerS = list(
         OccupiedLocker.objects.filter(lockerIdx__in = lockerS)
