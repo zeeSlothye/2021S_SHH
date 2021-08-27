@@ -26,7 +26,7 @@ def get_occupiedLockerS_stationUUID(request):
     occupiedLockerS = list(
         OccupiedLocker.objects.filter(lockerIdx__in = lockerS)
     )
-    serializer = OccupiedLocker(occupiedLockerS, many = True)
+    serializer = OccupiedLockerSerializer(occupiedLockerS, many = True)
     print("VACANT LOCKER IN UUID:"+stationUUID+" => ")
     print(serializer.data)
     return Response(serializer.data)
