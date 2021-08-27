@@ -42,7 +42,6 @@ def create_occupiedLocker(request):
     # - trusterId (required)
     if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
         #<class 'django.http.request.QueryDict'>
-        print(request)
         print(request.data.get('_content'))
         input = json.loads(request.data.get('_content')) 
         print(input)
