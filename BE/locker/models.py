@@ -21,8 +21,7 @@ class OccupiedLocker(models.Model):
     info = models.TextField(null = True,blank=True)
 
     isOpen = models.BooleanField(null = False, default=False)
-
-    date = models.DateField(null = False, default=timezone.now)#사용시작 시간
+    date = models.DateTimeField(null = False, default=timezone.now)#사용시작 시간
 
     trusterId = models.TextField(null = False)
 
