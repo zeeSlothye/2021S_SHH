@@ -1,3 +1,4 @@
+import re
 from django.db.models import Q
 
 from user.models import *
@@ -39,6 +40,7 @@ def create_occupiedLocker(request):
     # - info (required)
     # - isOpen (required)
     # - trusterId (required)
+    print(request.data)
     if(str(type(request.data)) == '<class \'django.http.request.QueryDict\'>'):
         #<class 'django.http.request.QueryDict'>
         input = json.loads(request.data.get('_content')) 
