@@ -26,4 +26,4 @@ class OccupiedLocker(models.Model):
 
     trusterId = models.TextField(null = False)
 
-    # isPaid = models.BooleanField(null = False)
+    isPaid = models.BooleanField(null = False)
