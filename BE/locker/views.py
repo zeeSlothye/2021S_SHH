@@ -59,7 +59,7 @@ def create_occupiedLocker(request):
         title = input['title'],
         info = input['info'],
         trusterId = input['trusterId'],
-        isPaid = input['isPaid']
+        isPaid = False # 수종하기
     )
     return HttpResponse('CREATE LOCKER USING')
 @api_view(['POST'])
