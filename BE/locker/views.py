@@ -43,9 +43,9 @@ def create_occupiedLocker(request):
         #<class 'django.http.request.QueryDict'>
         input = json.loads(request.data.get('_content')) 
         print(input)
-    userS = list(User.objects.filter(userId = input['trusterId']))
-    user = userS[0]
-    autoPayment = user.autoPayment
+    # userS = list(User.objects.filter(userId = input['trusterId']))
+    # user = userS[0]
+    # autoPayment = user.autoPayment
 
     OccupiedLocker.objects.create(
         lockerIdx = input['lockerIdx'],
@@ -53,8 +53,7 @@ def create_occupiedLocker(request):
         title = input['title'],
         info = input['info'],
         isOpen = input['isOpen'],
-        trusterId = input['trusterId'],
-        isPaid = autoPayment
+        trusterId = input['trusterId']
     )
     return HttpResponse('CREATE LOCKER USING')
 @api_view(['POST'])
