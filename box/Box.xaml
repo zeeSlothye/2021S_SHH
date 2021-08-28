@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.box.Box"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation.box" 
+             
+    WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+    HeightSpecification="{Static LayoutParamPolicies.MatchParent}" >
+    
+    <ContentPage.AppBar >
+        <AppBar Title="Box"/>
+    </ContentPage.AppBar>
+
+    
+    <ContentPage.Content>
+        <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+              HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+
+            <ImageView ResourceUrl="*Resource*/images/hello.jpg"
+               WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+               HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+               x:Name="contentView">
+
+                <View.Layout>
+                        <FlexLayout Direction="Row"
+                                    Justification="SpaceAround"
+                                    Alignment="Center"
+                                    ItemsAlignment="Center"/>
+                </View.Layout>
+                
+                <Button Text="수거"
+                    BackgroundColor="White"
+                    PointSize="100"
+                    TextColor="Red"
+                        Clicked="Button_Clicked_Remove"
+                        Size="400,400">
+                </Button>
+
+                <Button Text="보관"
+                        BackgroundColor="White"
+                        TextColor="Blue"
+                        PointSize="100"
+                        Clicked="Button_Clicked_Add"
+                        Size="400,400">
+                    </Button>
+
+                
+
+            </ImageView>
+        </View>
+    </ContentPage.Content>
+
+    
+</ContentPage>

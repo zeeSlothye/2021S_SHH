@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.box.ClickBox"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation.box" >
+
+    <ContentPage.AppBar>
+        <AppBar Title="사물함 정보"
+                />
+    </ContentPage.AppBar>
+
+    <ContentPage.Content>
+        <GaussianBlurView x:Name="blurView"
+            WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+            HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+            <ImageView ResourceUrl="*Resource*/images/yelloBG.PNG">
+                <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+              HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+              BackgroundColor="White"
+              ParentOrigin="TopLeft"
+              PivotPoint="TopLeft"
+              Padding="70,10,10,70"
+              PositionUsesPivotPoint="True">
+                    <View.Layout>
+                        <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"/>
+                    </View.Layout>
+
+                    <TextLabel x:Name="boxNum"
+                       Text="사물함 번호: "
+                       PixelSize="80"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                    <TextLabel Text="물품정보"
+                       PixelSize="50"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                    <TextEditor x:Name="stuff"
+                       PlaceholderText="보관하실 물건의 제목를 입력하세요."
+                       TextChanged="stuff_TextChanged"
+                       PixelSize="100"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                        HeightSpecification="200"/>
+                    <TextLabel Text="물품정보"
+                       PixelSize="50"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                    <TextEditor x:Name="info"
+                       PlaceholderText="보관하실 물건의 정보를 입력하세요."
+                       TextChanged="stuff_TextChanged"
+                       PixelSize="100"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                        HeightSpecification="200"/>
+                    <TextLabel Text="비밀번호"
+                       PixelSize="50"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                    <TextField x:Name="enterPW"
+                               TouchEvent="enterPW_TouchEvent"
+                               TextChanged="enterPW_TextChanged"
+                       PlaceholderText="네 자리 숫자를 입력하세요."
+                       MaxLength="4"
+                       MaxLengthReached="enterPW_MaxLengthReached"
+                       PixelSize="100"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+
+                    <View>
+                        <View.Layout>
+                            <FlexLayout Alignment="Stretch"
+                                Justification="SpaceAround"
+                                Direction="Row"/>
+                        </View.Layout>
+                        <Button x:Name="back"
+                        Text="이전"
+                    Clicked="back_Clicked"/>
+
+                        <Button x:Name="startUse"
+                        Text="예약하기"
+                    Clicked="startUse_Clicked"/>
+                    </View>
+                </View>
+
+            </ImageView>
+
+        </GaussianBlurView>
+        
+    </ContentPage.Content>
+</ContentPage>

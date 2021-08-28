@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.box.AddBoxPage"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation.box" >
+    <ContentPage.AppBar >
+        <AppBar Title="물품보관"/>
+    </ContentPage.AppBar>
+
+    <ContentPage.Content>
+
+        <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+              HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+                  >
+
+            <ImageView ResourceUrl="*Resource*/images/hello.jpg"
+               WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+               HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+               x:Name="contentView">
+                <View.Layout>
+                    <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"/>
+                </View.Layout>
+
+                <View x:Name="stationInfo"
+                    WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                     HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      CellHorizontalAlignment="Center"
+                     Weight="0.3">
+                    <View.Layout>
+                        <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"
+                                      Margin="70,10,10,70"/>
+                    </View.Layout>
+                    <TextLabel x:Name="stationName" 
+                               Text="버스 정류장: "
+                               PixelSize="100"/>
+                    <TextLabel x:Name="remainUmbrella" 
+                               Text="남은 우산 수 = "
+                               PixelSize="70"/>
+                    <TextLabel x:Name="remainMask" 
+                               Text="남은 마스크 수 = "
+                               PixelSize="70"/>
+                </View>
+
+                <View x:Name="boxInfo"
+                      WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      BackgroundColor="White"
+                      Weight="0.6">
+                </View>
+
+            </ImageView>
+        </View>
+
+    </ContentPage.Content>
+
+</ContentPage>
