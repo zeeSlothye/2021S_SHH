@@ -1,4 +1,4 @@
 # 2021Summer Seoul Hardware Hackathon.
-## 주제: 버스 정류장 키오스크 개선
+주제: 버스 정류장 키오스크 개선 <br>
 팀명: 크누포스 
 ***
