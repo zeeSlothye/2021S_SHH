@@ -1,0 +1,20 @@
+<Theme
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:c="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+  Id="sampleTheme" >
+
+  <!-- Put styles with x:Key here -->
+    <c:ButtonStyle x:Key="BoxButton">
+        <c:ButtonStyle.BackgroundImage>
+            <Selector x:TypeArguments="x:String"
+                  Normal="*Resource*/images/gallery_item_normal.png"
+                      Pressed="*Resource*/images/gallery_item_pressed.png"
+                      SelectedFocused="*Resource*/images/gallery_item_pressed.png">
+                
+            </Selector>
+        </c:ButtonStyle.BackgroundImage>
+    </c:ButtonStyle>
+    
+
+</Theme>
