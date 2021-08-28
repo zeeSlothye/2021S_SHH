@@ -20,6 +20,5 @@ X
 업데이트 예정입니다.
 ## 보드
 - Raspberry pi 4
-- Arduino Uno
 ## 구현사항
 Gpio
