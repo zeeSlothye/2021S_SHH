@@ -27,24 +27,21 @@
                                     Alignment="Center"
                                     ItemsAlignment="Center"/>
                 </View.Layout>
-                
-                <Button Text="수거"
-                    BackgroundColor="White"
-                    PointSize="100"
-                    TextColor="Red"
-                        Clicked="Button_Clicked_Remove"
-                        Size="400,400">
-                </Button>
-
                 <Button Text="보관"
                         BackgroundColor="White"
                         TextColor="Blue"
                         PointSize="100"
                         Clicked="Button_Clicked_Add"
                         Size="400,400">
-                    </Button>
-
+                </Button>
                 
+                <Button Text="목록"
+                    BackgroundColor="White"
+                    PointSize="100"
+                    TextColor="Red"
+                        Clicked="Button_Clicked_Remove"
+                        Size="400,400">
+                </Button>
 
             </ImageView>
         </View>

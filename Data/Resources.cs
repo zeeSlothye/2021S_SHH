@@ -6,19 +6,18 @@ using Newtonsoft.Json.Linq;
 
 namespace BoxStation.Data
 {
-    public static class Resources
+    public class Resources
     {
+        //userPH = trusterId
         public static Users user = new Users("01012345678", "12345678", "0000", "True");
         //public static Dictionary<Locker, OccupiedLocker> lockerDIctS = new Dictionary<Locker, OccupiedLocker>();
 
-        public static Dictionary<Locker, OccupiedLocker> lockerDIctS = new Dictionary<Locker, OccupiedLocker>()
+        public Dictionary<Locker, OccupiedLocker> lockerDIctS = new Dictionary<Locker, OccupiedLocker>()
         {
-            { new Locker(1,"1","1","홈플러스 앞","1234123412341234","1234123412341234"), null}
-            /*
-            { new Locker(2,2,"홈플러스 앞","1234123412341234","1234123412341234"),},
-            { new Locker(3, 3, "홈플러스 앞", "1234123412341234", "1234123412341234"),},
-            { new Locker(4, 4, "홈플러스 앞", "1234123412341234", "1234123412341234")},
-            */
+            { new Locker(1,"1","1","홈플러스 앞","1234123412341234","1234123412341234"), null},
+            { new Locker(2,"2","2","홈플러스 앞","1234123412341234","1234123412341234"), null},
+            { new Locker(3, "3","3", "홈플러스 앞", "1234123412341234", "1234123412341234"), null},
+            { new Locker(4, "4", "4","홈플러스 앞", "1234123412341234", "1234123412341234"), null},
         };
         
         /*

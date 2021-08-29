@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tizen.Applications;
 
 namespace BoxStation.Data.models
 {
@@ -17,31 +18,30 @@ namespace BoxStation.Data.models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public OccupiedLocker(string json)
+        public OccupiedLocker(JObject jObject)
         {
-            JObject jObject = JObject.Parse(json);
 
             idx = (string)jObject["idx"];
-            lockerIdx = (int)jObject["lockerIdx"];
+            lockerIdx = (string)jObject["lockerIdx"];
             password = (string)jObject["password"];
             title = (string)jObject["title"];
             info = (string)jObject["info"];
             isOpen = (string)jObject["isOpen"];
             date = (string)jObject["date"];
-            trusterId = (string)jObject["trustId"];
+            trusterId = (string)jObject["trusterId"];
             isPaid = (string)jObject["isPaid"];
         }
-        public OccupiedLocker(string idx, int lockerIdx, string password, string title, string info, string isOpen, string date, string trusterId, string isPaid)
+        public OccupiedLocker(string idx, string lockerIdx, string password, string title, string info, string isOpen, string date, string trusterId, string isPaid)
         {
-            this.idx = idx;
-            this.lockerIdx = lockerIdx;
-            this.password = password;
-            this.title = title;
-            this.info = info;
-            this.isOpen = isOpen;
-            this.date = date;
-            this.trusterId = trusterId;
-            this.isPaid = isPaid;
+            Idx = idx;
+            LockerIdx = lockerIdx;
+            Password = password;
+            Title = title;
+            Info = info;
+            IsOpen = isOpen;
+            Date = date;
+            TrusterId = trusterId;
+            IsPaid = isPaid;
         }
         private string idx;
         public string Idx
@@ -57,8 +57,8 @@ namespace BoxStation.Data.models
             }
         }
 
-        private int lockerIdx;
-        public int LockerIdx
+        private string lockerIdx;
+        public string LockerIdx
         {
             get
             {
@@ -118,8 +118,16 @@ namespace BoxStation.Data.models
         {
             get
             {
-                return isOpen;
+                if (isOpen=="true")
+                {
+                    return Application.Current.DirectoryInfo.Resource + "/images/isOpen/isOpen_true";
+                }
+                else
+                {
+                    return Application.Current.DirectoryInfo.Resource + "/images/isOpen/isOpen_false";
+                }
             }
+
             set
             {
                 isOpen = value;

@@ -1,26 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<DialogPage x:Class="BoxStation.box.Reserve"
+<ContentPage x:Class="BoxStation.box.reserve.Submit"
     xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BoxStation.box" >
-    
-    <DialogPage.Content>
-        <View x:Name="reserving" 
-          TouchEvent="View_TouchEvent"
-          WidthSpecification="1750"
-          HeightSpecification="950"
-          BackgroundColor="White"
-          ParentOrigin="Center"
-          PivotPoint="Center"
-          PositionUsesPivotPoint="True"
-              CornerRadius="40,40,40,40"
-CornerRadiusPolicy="Absolute">
+    xmlns:local="clr-namespace:BoxStation.box.reserve" >
+    <ContentPage.Content>
+        <View x:Name="fromServer"
+            WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+            HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
             <View.Layout>
-                <LinearLayout LinearAlignment="Center"
-                              Margin="70,10,10,70"
-                              LinearOrientation="Vertical"/>
+                <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"/>
             </View.Layout>
-
             <TextLabel Text="사물함이 열렸습니다." 
                        PixelSize="150"
                        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
@@ -38,11 +28,10 @@ CornerRadiusPolicy="Absolute">
                        />
             <Button x:Name="startReserve"
                     TouchEvent="startReserve_TouchEvent"
-                    Text="예약 확인"
-                    />
+                    Text="예약 확인" />
+
 
         </View>
+    </ContentPage.Content>
 
-    </DialogPage.Content>
-
-</DialogPage>
+</ContentPage>

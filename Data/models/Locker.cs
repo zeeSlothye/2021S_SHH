@@ -106,11 +106,6 @@ namespace BoxStation.Data.models
         }
 
         private string stationLocation;
-        private int v1;
-        private int v2;
-        private string v3;
-        private string v4;
-        private string v5;
 
         public string StationLocation
         {
