@@ -65,7 +65,7 @@
                        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
             <TextEditor x:Name="stuff"
                        PlaceholderText="보관하실 물건의 제목를 입력하세요."
-                       TextChanged="stuff_TextChanged"
+                       
                        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
             <TextLabel Text="비밀번호"
                        WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>

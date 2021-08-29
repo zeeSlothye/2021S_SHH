@@ -12,6 +12,9 @@ using Tizen.NUI;
 using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Binding;
 using Tizen.NUI.Components;
+using System.Net;
+using System.Text.Json;
+using System.IO;
 
 namespace BoxStation.box.reserve
 {
@@ -54,7 +57,7 @@ namespace BoxStation.box.reserve
             remainMask.Text = station.Mask;
 
             //서버로부터 정류장에 따른 locker받아오고, 이를 바탕으로 occupied matching 하기. 
-            List<OccupiedLocker> occupiedLockerS;
+            List<OccupiedLocker> occupiedLockerS = new List<OccupiedLocker>(); //null
             async void saveOccupiedLockerS()
             {
                 occupiedLockerS = await temp_set_things();

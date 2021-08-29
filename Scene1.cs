@@ -8,14 +8,19 @@ using Tizen.NUI;
 using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Components;
 using Tizen.NUI.Xaml;
+using System.IO;
+using System.Text.Json;
+using System.Net;
 
 namespace BoxStation
 {
-    [Serialize]
+    
     public class Scene1 : NUIApplication
     {
+        
         override protected void OnCreate()
         {
+
             base.OnCreate();
 
             // NOTE To use theme.xaml, uncomment below line.

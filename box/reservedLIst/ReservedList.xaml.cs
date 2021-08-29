@@ -3,6 +3,11 @@ using Tizen.NUI;
 using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Binding;
 using Tizen.NUI.Components;
+using System.IO;
+using System.Text.Json;
+using System.Net;
+using ReservedList.xaml.cs;
+
 
 namespace BoxStation
 {
@@ -12,7 +17,7 @@ namespace BoxStation
         {
             InitializeComponent();
 
-            Dictionary<string, string> trusterIdDict = new Dictionary<string, string>("trusterId","01012345678");
+            Dictionary<string, string> trusterIdDict = new Dictionary<string, string>();
 
             Create_occupiedLocker("http://52.79.205.194:8000/locker/occupied/get/trusterId",trusterIdDict);
 
@@ -38,6 +43,28 @@ namespace BoxStation
             reservedList.Add(reservedListContainerView);
 
         }
+
+        public async Task<List<OccupiedLocker>> temp_set_things()
+        {
+            //서버로부터 받아온 locker정보와 occupied정보를 matching함. 
+            string usedRecordS = "";
+            foreach (Locker record in new Data.Resources().lockerDIctS.Keys)
+            {
+                usedRecordS += ("," + locker.Idx);
+            }
+            usedRecordS = lockerIdxS.Substring(1);
+            //Data.Resources.locker에 있는애들의 locker각 index만 뽑아서 list로 만들기. 
+
+
+            parameters.Add("trusterId", usedRecordS);
+            //정보 전달 완료 
+            List<OccupiedLocker> occupiedLockerS = await Get_occupiedLockerS("http://52.79.205.194:8000/locker/occupied/get/trusterId", trusterIdDict);
+
+            return occupiedLockerS;
+
+
+        }
+
         // await Create_occupiedLocker("http://52.79.205.194:8000/locker/occupied/get/trusterId", parameters);
         private async void Create_occupiedLocker(string uri, Dictionary<string, string> parameters)
         {
@@ -76,3 +103,4 @@ namespace BoxStation
 
     }
 }
+
