@@ -11,6 +11,7 @@ using Tizen.NUI.Xaml;
 
 namespace BoxStation
 {
+    [Serialize]
     public class Scene1 : NUIApplication
     {
         override protected void OnCreate()
@@ -21,8 +22,8 @@ namespace BoxStation
             ThemeManager.ApplyTheme(new Theme(Tizen.Applications.Application.Current.DirectoryInfo.Resource + "theme/theme.xaml"));
            
             //Portrait mode
-            GetDefaultWindow().AddAvailableOrientation(Window.WindowOrientation.Portrait);
-            GetDefaultWindow().SetPreferredOrientation(Window.WindowOrientation.Portrait);
+            //GetDefaultWindow().AddAvailableOrientation(Window.WindowOrientation.Portrait);
+            //GetDefaultWindow().SetPreferredOrientation(Window.WindowOrientation.Portrait);
 
             GetDefaultWindow().GetDefaultNavigator().Push(new NaviPage());
             GetDefaultWindow().KeyEvent += OnScene1KeyEvent;

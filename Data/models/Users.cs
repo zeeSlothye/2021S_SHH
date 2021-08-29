@@ -71,8 +71,6 @@ namespace BoxStation.Data
         }
         
         private string autoPayment;
-        internal string userPh;
-
         public string AutoPayment
         {
             get

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.Test"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation" >
+    <TextLabel x:Name="TestLabel"></TextLabel>
+</ContentPage>

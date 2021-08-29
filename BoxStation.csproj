@@ -13,35 +13,32 @@
     <DebugType>None</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="box\AddBoxPage.xaml" />
     <None Remove="box\Box.xaml" />
-    <None Remove="box\ClickBox.xaml" />
-    <None Remove="box\Reserve.xaml" />
-    <None Remove="box\Reserved.xaml" />
     <None Remove="box\ReservedListPopup.xaml" />
+    <None Remove="box\reserve\Complete.xaml" />
+    <None Remove="box\reserve\Form.xaml" />
+    <None Remove="box\reserve\Submit.xaml" />
     <None Remove="bus\Bus.xaml" />
     <None Remove="mypage\MyPage.xaml" />
     <None Remove="NaviPage.xaml" />
     <None Remove="ReservedList.xaml" />
+    <None Remove="Test.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="box\AddBoxPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="box\Box.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="box\ClickBox.xaml">
+    <EmbeddedResource Include="box\reservedLIst\ReservedListPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="box\Reserve.xaml">
+    <EmbeddedResource Include="box\reserve\Complete.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="box\Reserved.xaml">
+    <EmbeddedResource Include="box\reserve\Form.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="box\ReservedListPopup.xaml">
+    <EmbeddedResource Include="box\reserve\Submit.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="bus\Bus.xaml">
@@ -53,10 +50,13 @@
     <EmbeddedResource Include="NaviPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="box\ReservedList.xaml">
+    <EmbeddedResource Include="box\reservedLIst\ReservedList.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Scene1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.box.reserve.Form"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation.box.reserve" >
+
+    <ContentPage.AppBar >
+        <AppBar Title="물품보관"/>
+    </ContentPage.AppBar>
+
+    <ContentPage.Content>
+
+        <View x:Name="fromServer"
+            WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+              HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+              Weight="0.6"
+                  >
+            <View.Layout>
+                <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"/>
+            </View.Layout>
+
+            <ImageView x:Name="stationInfo"
+                ResourceUrl="*Resource*/images/hello.jpg"
+               WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+               HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+               >
+                <View.Layout>
+                    <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"
+                                      Margin="70,10,10,70"/>
+                </View.Layout>
+                <TextLabel x:Name="stationName" 
+                               Text="버스 정류장: "
+                               PixelSize="100"/>
+                <TextLabel x:Name="remainUmbrella" 
+                               Text="남은 우산 수 = "
+                               PixelSize="70"/>
+                <TextLabel x:Name="remainMask" 
+                               Text="남은 마스크 수 = "
+                               PixelSize="70"/>
+            </ImageView>
+
+            <View x:Name="lockerContainer"
+                  WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+                  BackgroundColor="White"
+                  CellHorizontalAlignment="Center"/>
+
+        </View>
+
+        <View x:Name="fromUser"
+              WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+              HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+              BackgroundColor="White"
+              Padding="70,10,10,70"
+              Weight="0.4">
+            
+            <View.Layout>
+                <LinearLayout LinearOrientation="Vertical"
+                                  LinearAlignment="Begin"/>
+            </View.Layout>
+
+            <TextLabel Text="물품정보"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+            <TextEditor x:Name="stuff"
+                       PlaceholderText="보관하실 물건의 제목를 입력하세요."
+                       TextChanged="stuff_TextChanged"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+            <TextLabel Text="비밀번호"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+            <TextField x:Name="enterPW"
+                       TouchEvent="enterPW_TouchEvent"
+                       TextChanged="enterPW_TextChanged"
+                       PlaceholderText="네 자리 숫자를 입력하세요."
+                       MaxLength="4"
+                       MaxLengthReached="enterPW_MaxLengthReached"
+                       WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+            
+            <View x:Name="button">
+                <View.Layout>
+                    <FlexLayout Alignment="Stretch"
+                                Justification="SpaceAround"
+                                Direction="Row"/>
+                </View.Layout>
+                <Button x:Name="cancel"
+                        Text="취소"
+                    Clicked="cancel_Clicked"/>
+
+                <Button x:Name="startUse"
+                        Text="예약하기"
+                    Clicked="startUse_Clicked"/>
+            </View>
+
+        </View>
+
+    </ContentPage.Content>
+
+</ContentPage>

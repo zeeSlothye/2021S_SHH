@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="BoxStation.ReservedList"
+    xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BoxStation" >
+
+    <ContentPage.AppBar>
+        <AppBar Title="보관 목록"/>
+    </ContentPage.AppBar>
+    <ContentPage.Content>
+        <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+              BackgroundColor="White">
+            
+            <View.Layout>
+                <LinearLayout LinearAlignment="Begin"
+                          LinearOrientation="Vertical"/>
+            </View.Layout>
+            
+            
+            
+            <View x:Name="Label"
+                      WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      BackgroundColor="White"
+              Weight="0.1">
+                
+                <View.Layout>
+                    <LinearLayout LinearAlignment="Begin"
+                          LinearOrientation="Horizontal"/>
+                </View.Layout>
+                
+                <TextLabel 
+                           Text="보관 장소"
+                    x:Name="reservedLocation"
+                           ParentOrigin="CenterLeft"
+                           PivotPoint="CenterLeft"  
+                    Position="0,0"
+                           Padding="70,10,10,10"
+                           PositionUsesPivotPoint="True"
+                           />
+                <TextLabel Text="비밀번호"
+                       x:Name="reservedPw"
+                           ParentOrigin="Center"
+                           PivotPoint="Center"  
+                           Position="0,0"
+                           PositionUsesPivotPoint="True"/>
+                <TextLabel Text="요금"
+                       x:Name="reservedCost"
+                           ParentOrigin="CenterRight"
+                           PivotPoint="CenterRight"  
+                           Position="0,0"
+                           Padding="10,10,10,70"
+                           PositionUsesPivotPoint="True"/>
+            </View>
+            
+            
+            <View x:Name="reservedList"
+                      WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                      BackgroundColor="White"
+              Weight="0.9">
+            </View>
+        </View>
+        
+    </ContentPage.Content>
+
+    
+</ContentPage>

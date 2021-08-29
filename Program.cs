@@ -12,6 +12,7 @@ namespace BoxStation
         static void Main(string[] args)
         {
             Scene1 Instance = new Scene1();
+            
             Instance.Run(args);
         }
     }

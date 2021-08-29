@@ -13,7 +13,7 @@ namespace BoxStation.box
 
         private void Button_Clicked_Add(object sender, ClickedEventArgs e)
         {
-            Navigator.Push(new AddBoxPage());
+            Navigator.Push(new box.reserve.Form());
         }
 
         private void Button_Clicked_Remove(object sender, ClickedEventArgs e)
